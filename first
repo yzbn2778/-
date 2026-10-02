@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main() {
+    int a[3][3]; 
+    int n = 3;
+    int sum = 0;
+    int x = 0; 
+
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    for(int i = 0; i < n; i++) {
+        sum = 0;
+        for(int j = 0; j < n; j++) {
+            if(a[i][j] == 0) sum++;
+        }
+        if(sum == n) { printf("0"); return 0; } // 直接结束
+        if(sum == 0) { printf("1"); return 0; }
+    }
+
+    for(int j = 0; j < n; j++) {
+        sum = 0;
+        for(int i = 0; i < n; i++) {
+            if(a[i][j] == 0) sum++;
+        }
+        if(sum == n) { printf("0"); return 0; }
+        if(sum == 0) { printf("1"); return 0; }
+    }
+
+    sum = 0;
+    for(int i = 0; i < n; i++) {
+        if(a[i][i] == 0) sum++;
+    }
+    if(sum == n) { printf("0"); return 0; }
+    if(sum == 0) { printf("1"); return 0; }
+
+    sum = 0;
+    for(int i = 0; i < n; i++) {
+        int j = n - 1 - i;
+        if(a[i][j] == 0) sum++;
+    }
+    if(sum == n) { printf("0"); return 0; }
+    if(sum == 0) { printf("1"); return 0; }
+
+    printf("-1");
+    return 0;
+}
